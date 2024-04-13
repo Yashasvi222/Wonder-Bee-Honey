@@ -2,11 +2,12 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding-left: 20px;
+    padding-left: 10px;
     padding-right: 20px;
     max-width: 100vw;
     height: 144px;
     gap: 290px;
+    overflow-x: hidden;
 }
 
 .nav-menu{
@@ -70,24 +71,4 @@
     font-size: 14px;
     background-color: red;
     color: white;
-}
-
-
-.hero{
-    max-width: 100vw;
-    height: 562px;
-    background-color: rgb(248, 244, 236);
-}
-.quote{
-    max-width: 100vw;
-    height: 719px;
-}
-.usp{
-    max-width: 100vw;
-    height: 563px;
-    background-color: rgb(248, 244, 236);
-}
-.footer{
-    max-width: 100vw;
-    height: 300px;
 }

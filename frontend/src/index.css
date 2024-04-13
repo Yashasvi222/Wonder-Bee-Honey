@@ -8,6 +8,11 @@ body {
   font-family: 'poppins';
 }
 
+body::-webkit-scrollbar {
+  width: 0;
+  background: transparent; /* optional: hides scrollbar track */
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
