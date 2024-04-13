@@ -18,6 +18,16 @@
     font-weight: 500;
 }
 
+.nav-menu a {
+    color: inherit; 
+    text-decoration: none; 
+}
+  
+.nav-menu a:hover {
+    text-decoration: underline;
+}
+  
+
 .nav-menu li{
     display: flex;
     flex-direction: column;

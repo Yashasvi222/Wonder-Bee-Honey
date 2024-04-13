@@ -1,0 +1,62 @@
+.hero{
+    background-color: #F8F4EC;
+    width: 100vw;
+    height: 500px;
+    display: flex;
+}
+
+.hero-left img{
+    height: 500px;
+    width: auto;
+}
+
+.welcome{
+    display: flex;
+    gap: 16px;
+    height: 80px;
+}
+
+.welcome p{
+    font-size: 45px;
+    font-weight: 500;
+}
+
+.tagline{
+    font-size: 35px;
+    color: #8CB45C;
+    font-family: 'Rouge Script';
+    padding-bottom: 30px;
+}
+
+.wonder{
+    color: #8CB45C;
+}
+
+.text-container{
+    width: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.intro-div{
+    width: 720px;
+    display: flex;
+    flex-direction: column;
+    text-align: justify;
+    align-items: center;
+    font-size: 17px;
+}
+
+.shop-now{
+    font-size: 18px;
+    color: #8CB45C;
+    background-color: #F8F4EC;
+    margin-top: 30px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border: 3px solid #8CB45C;
+    border-radius: 32px;
+}
