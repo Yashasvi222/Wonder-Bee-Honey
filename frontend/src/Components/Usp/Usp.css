@@ -1,0 +1,72 @@
+.usp{
+    background-color: #F8F4EC;
+    width: 100vw;
+    height: 400px;
+}
+.organic{
+    display: flex;
+    width: 100vw;
+    font-size: 43px;
+    font-weight: 600;
+    justify-content: center;
+    height: 90px;
+}
+.usp-left{
+    /* background-color: blueviolet; */
+    width: 50vw;
+}
+.usp-right{
+    /* background-color: blue; */
+    width: 50vw;
+}
+.organic p{
+    margin-top: 20px;
+}
+.usp-one{
+    display: flex;
+    font-size: 28px;
+    font-weight: 500;
+    /* background-color: aqua; */
+    justify-content: space-around;
+}
+.usp-two{
+    display: flex;
+    font-size: 28px;
+    font-weight: 500;
+    align-items: center;
+    gap: 7px;
+    /* background-color:aquamarine ; */
+    justify-content: center;
+}
+.continuous{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    /* background-color: aqua; */
+    padding-left: 165px;
+}
+.beee{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    /* background-color: aquamarine; */
+    padding-left: 65px;
+}
+.community{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    /* background-color: blue; */
+    padding-left: 125px;
+}
+.pollinator{
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    /* background-color: blueviolet; */
+    padding-left: 335px;
+}
+.continuous img{
+    height: 35px;
+    width: auto;
+}
