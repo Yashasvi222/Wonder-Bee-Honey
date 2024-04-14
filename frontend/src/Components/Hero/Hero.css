@@ -22,7 +22,7 @@
 }
 
 .tagline{
-    font-size: 35px;
+    font-size: 30px;
     color: #8CB45C;
     font-family: 'Rouge Script';
     padding-bottom: 30px;
@@ -40,7 +40,7 @@
 }
 
 .intro-div{
-    width: 720px;
+    width: 760px;
     display: flex;
     flex-direction: column;
     text-align: justify;

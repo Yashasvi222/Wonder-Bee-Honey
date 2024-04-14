@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    width: 100vw;
+    justify-content: space-around;
+}
+.quote p{
+    font-size: 42px;
+    font-family: 'Dancing Script';
+}
+.line-one{
+    
+}
+.line-two{
+    color: #8CB45C;
+    padding-left: 250px;
+    margin-top: -30px;
+}
+.line-three{
+    padding-left: 340px;
+    margin-top: -30px;
+}
+.quote{
+    padding-top: 100px;
+    margin-left: 100px;
+    width: 600px;
+}
+.honeyimg img{
+    height: 480px;
+    width: auto;
+}
