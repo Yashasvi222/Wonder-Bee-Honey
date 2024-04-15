@@ -1,0 +1,11 @@
+.store-head{
+    display: flex;
+    background-color: #F8F4EC;
+    height: 200px;
+    width: 100vw;
+}
+.store-head p{
+    font-size: 50px;
+    font-weight: 600;
+    margin-left: 490px;
+}
