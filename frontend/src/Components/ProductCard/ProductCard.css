@@ -1,0 +1,59 @@
+.card-container{
+    height: 500px;
+    width: 320px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFCF5;
+    border: 1px solid #8CB45C;
+    margin: 120px;
+    align-items: center;
+    justify-content: space-around;
+}
+.card-container img{
+    width: 290px;
+    height: auto;
+    margin-top: -12px;
+}
+.line{
+    width: 150px;
+    height: 1.5px;
+    border: none;
+    background-color: #8CB45C;
+}
+.price{
+    font-size: 22px;
+    color: #DFD832;
+    font-weight: 500;
+    margin-top: -20px;
+}
+.flavor{
+    font-family: 'Dancing Script';
+    font-size: 36px;
+    color: #8CB45C;
+    margin-top: -45px;
+    margin-bottom: -5px;
+}
+.weights{
+    display: flex;
+}
+.card-container button{
+    background-color: #8CB45C;
+    border: none;
+    color: white;
+    width: 110px;
+    height: 34px;
+    font-size: 15px;
+    margin-top: -5px;
+}
+.w-one, .w-two{
+    display: flex;
+    width: 65px;
+    height: 30px;
+    border: 1px solid #8CB45C;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    color: #8CB45C;
+    margin-top: -30px;
+    margin-bottom: -20px;
+}
