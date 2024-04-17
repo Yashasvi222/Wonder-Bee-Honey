@@ -1,5 +1,6 @@
 import React from 'react'
 import './Hero.css'
+import { Link } from 'react-router-dom';
 import bee from '../Assets/enlarge_Mountain-Valley-Honey-How-Do-Bees-Make-Honey-1-1024x683-removebg-preview_1.png'
 
 const hero = () => {
@@ -23,7 +24,10 @@ const hero = () => {
           facilis totam explicabo necessitatibus non. Ipsum reprehenderit quaerat unde impedit 
           dignissimos fugiat nobis ex eos deserunt? Voluptatibus placeat consectetur eum adipisci 
           possimus, ea harum assumenda?</p>
-          <button className="shop-now">Shop Now</button>
+          
+            <button className="shop-now"><Link style={{ textDecoration: 'none', color: 'inherit'}} to='/store'>Shop Now</Link></button>
+          
+          
         </div>
         
         </div>
