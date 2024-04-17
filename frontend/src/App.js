@@ -5,6 +5,7 @@ import Store from './Pages/Store';
 import Journey from './Pages/Journey';
 import Contact from './Pages/Contact';
 import Cart from './Pages/Cart';
+import LoginSignup from './Pages/LoginSignup';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path='/journey' element={<Journey/>}/>
         <Route path='/contact' element={<Contact/>}/>
         <Route path='/cart' element={<Cart/>}/>
+        <Route path='/login' element={<LoginSignup/>}/>
       </Routes>
       </BrowserRouter>
       
