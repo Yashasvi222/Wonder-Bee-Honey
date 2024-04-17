@@ -1,16 +1,16 @@
 import React from 'react'
 import './ProductCard.css'
-import Honey from '../Assets/Group 18.png'
+// import Honey from '../Assets/Group 18.png'
 
-const ProductCard = () => {
+const ProductCard = (props) => {
   return (
     <>
       <div className="card">
         <div className="card-container">
-            <img src={Honey} alt="Honey" />
-            <p className="flavor">Lorem Ipsum</p>
+            <img src={props.image} alt="Honey" />
+            <p className="flavor">{props.name}</p>
             <hr className="line" />
-            <p className="price">₹1200/-</p>
+            <p className="price">₹{props.price}</p>
             <div className="weights">
                 <div className="w-one">
                     500gm
