@@ -66,13 +66,13 @@ let data_product = [
     price:85.00,
   },
   {
-    id:12,
+    id:11,
     name:"Lorem Ipsum",
     image:p3_img,
     price:60.00,
   },
   {
-    id:13,
+    id:12,
     name:"Lorem Ipsum",
     image:p4_img,
     price:100.00,

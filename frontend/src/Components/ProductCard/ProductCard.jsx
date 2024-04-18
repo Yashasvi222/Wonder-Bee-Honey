@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ShopContext } from '../../Context/ShopContext';
 import './ProductCard.css'
-// import Honey from '../Assets/Group 18.png'
 
 const ProductCard = (props) => {
+
+  const {addToCart} = useContext(ShopContext);
+
   return (
     <>
       <div className="card">
@@ -19,7 +22,7 @@ const ProductCard = (props) => {
                     1kg
                 </div>
             </div>
-            <button>Add to Cart</button>
+            <button onClick={()=>{addToCart(props.id)}}>Add to Cart</button>
         </div>
       </div>
     </>
