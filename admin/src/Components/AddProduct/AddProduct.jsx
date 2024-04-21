@@ -4,7 +4,7 @@ import upload_area from '../../assets/upload_area.svg'
 
 const AddProduct = () => {
 
-    const [imageUpload, setImageUpload] = useState(false);
+    const [image, setImage] = useState(false);
     const [productDetails, setProductDetails] = useState({
         name:"",
         image:"",
@@ -12,7 +12,7 @@ const AddProduct = () => {
     })
 
     const imageHandler = (e) =>{
-        setImageUpload(e.target.files[0]);
+        setImage(e.target.files[0]);
     }
     const changeHandler = (e) =>{
         setProductDetails({...productDetails, [e.target.name]:e.target.value})
@@ -20,7 +20,37 @@ const AddProduct = () => {
 
     const Add_Product = async ()=>{
         console.log(productDetails);
+        let responseData;
+        let product = productDetails;
+
+        let formData = new FormData();
+        formData.append('product', image);
+
+        await fetch('http://localhost:4000/upload',{
+            method: 'POST',
+            headers:{
+                Accept:'application/json'
+            },
+            body:formData,
+        }).then((resp)=>resp.json()).then((data)=>{responseData=data})
+
+        if(responseData.success)
+        {
+            product.image = responseData.image_url;
+            console.log(product);
+            await fetch('http://localhost:4000/addproduct',{
+                method: 'POST',
+                headers:{
+                    Accept:'application/json',
+                    'Content-Type':'application/json',
+                },
+                body:JSON.stringify(product),
+            }).then((resp)=>resp.json()).then((data)=>{
+                data.success?alert("Product Added"):alert("Failed")
+            })
+        }
     }
+
 
   return (
     <div className='add-product'>
@@ -36,7 +66,7 @@ const AddProduct = () => {
       </div>
       <div className="addproduct-itemfield">
         <label htmlFor="file-input">
-            <img src={imageUpload?URL.createObjectURL(imageUpload):upload_area} alt="" className="addproduct-thumbnail-img" />
+            <img src={image?URL.createObjectURL(image):upload_area} alt="" className="addproduct-thumbnail-img" />
         </label>
         <input onChange={imageHandler} type="file" name='image' id='file-input' hidden/>
       </div>
