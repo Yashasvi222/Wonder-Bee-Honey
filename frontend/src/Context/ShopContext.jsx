@@ -1,5 +1,6 @@
 import React, {createContext, useState} from "react";
-import data_product from '../Components/Assets/data'
+import data_product from "../Components/Assets/data";
+// import data_product from '../Components/Assets/data'
 
 export const ShopContext = createContext(null);
 
@@ -12,14 +13,31 @@ const getDefaultCart = ()=>{
 }
 
 const ShopContextProvider = (props) => {
-
+    
 
     const [cartItems, setCartItems] = useState(getDefaultCart())
     
+    // useEffect(()=>{
+    //     fetch('http://localhost:4000/allproducts')
+    //     .then((response)=>response.json())
+    //     .then((data)=>setAll_product(data))
+    // },[])
 
-    const addToCart = (ItemId) => {
-        setCartItems((prev)=>({...prev, [ItemId]:prev[ItemId]+1}))
-        console.log(cartItems);
+    const addToCart = (itemId) => {
+        setCartItems((prev)=>({...prev, [itemId]:prev[itemId]+1}))
+        if(localStorage.getItem('auth-token')){
+            fetch('http://localhost:4000/addtocart',{
+                method:'POST',
+                headers:{
+                    Accept:'application/form-data',
+                    'auth-token':`${localStorage.getItem('auth-token')}`,
+                    'Content-Type':'application/json',
+                },
+                body:JSON.stringify({"itemId":itemId}),
+            })
+            .then((response)=>response.json())
+            .then((data)=>console.log(data))
+        }
     }
     const removeFromCart = (ItemId) => {
         setCartItems((prev)=>({...prev, [ItemId]:prev[ItemId]-1}))

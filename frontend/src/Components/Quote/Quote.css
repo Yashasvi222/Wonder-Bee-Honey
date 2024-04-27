@@ -25,3 +25,17 @@
     height: 480px;
     width: auto;
 }
+
+@media(max-width:1280px){
+    .container{
+        height: 420px;
+    }
+    .quote p{
+        font-size: 37px;
+        font-family: 'Dancing Script';
+    }
+    .honeyimg img{
+        height: 430px;
+        width: auto;
+    }
+}

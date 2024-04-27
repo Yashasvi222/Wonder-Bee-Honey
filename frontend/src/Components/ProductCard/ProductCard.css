@@ -1,6 +1,6 @@
 .card-container{
-    height: 500px;
-    width: 320px;
+    height: 430px;
+    width: 290px;
     display: flex;
     flex-direction: column;
     background-color: #FFFCF5;
@@ -8,8 +8,14 @@
     align-items: center;
     justify-content: space-around;
 }
+
+.card-container:hover{
+    transform: scale(1.02);
+    transition: all 0.3s ease;
+}
+
 .card-container img{
-    width: 290px;
+    width: 260px;
     height: auto;
     margin-top: -12px;
 }
@@ -20,14 +26,14 @@
     background-color: #8CB45C;
 }
 .price{
-    font-size: 22px;
+    font-size: 21px;
     color: #DFD832;
     font-weight: 500;
     margin-top: -20px;
 }
 .flavor{
     font-family: 'Dancing Script';
-    font-size: 36px;
+    font-size: 32px;
     color: #8CB45C;
     margin-top: -45px;
     margin-bottom: -5px;
@@ -39,12 +45,23 @@
     background-color: #8CB45C;
     border: none;
     color: white;
-    width: 110px;
+    width: 130px;
     height: 34px;
     font-size: 15px;
     margin-top: -5px;
     cursor: pointer;
 }
+.card-container button:hover {
+    background-color: #84aa55;
+    transform: scale(1.08);
+    transition: all 0.3s ease;
+}
+.card-container button:active {
+    background-color: #9ec371;
+    transform: scale(1.08);
+    transition: all 0.3s ease;
+}
+
 .w-one, .w-two{
     display: flex;
     width: 65px;

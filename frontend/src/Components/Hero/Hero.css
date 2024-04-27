@@ -60,3 +60,17 @@
     border: 3px solid #8CB45C;
     border-radius: 32px;
 }
+
+@media(max-width:1280px){
+
+    .hero{
+        height: 470px;
+    }
+    .hero-left img{
+        height: 470px;
+    }
+    .intro-div{
+        font-size: 16px;
+        width: 710px;
+    }
+}
