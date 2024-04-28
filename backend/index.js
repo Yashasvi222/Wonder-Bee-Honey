@@ -6,12 +6,14 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors")
+const {MONGODB_CONNECTION_URL} = require('./secrets');
+
 
 app.use(express.json());
 app.use(cors());
 
 // Database connection with MongoDB
-mongoose.connect("mongodb+srv://wonderbeehoney:wonderbee@cluster0.jk64ean.mongodb.net/wonderbee")
+mongoose.connect(MONGODB_CONNECTION_URL)
 
 //API creation
 
