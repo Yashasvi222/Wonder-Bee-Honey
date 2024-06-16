@@ -1,0 +1,19 @@
+.about-us{
+    display: flex;
+    flex-direction: column;
+    padding-left: 130px;
+    padding-right: 130px;
+    margin-top: 20px;
+}
+.about-us-subheading{
+    font-size: 40px;
+    font-weight: 400;
+}
+.about-us-subheading-content{
+    font-size: 20px;
+    margin-top: -12px;
+    text-align: justify;
+}
+.specific-color{
+    color: #8CB45C;
+}

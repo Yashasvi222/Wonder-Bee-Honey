@@ -5,8 +5,8 @@
   }
   
   .slider {
-    width: 700px;
-    height: 400px;
+    width: 800px;
+    height: 430px;
     overflow: hidden;
     position: relative;
   }
@@ -19,6 +19,7 @@
     left: 0;
     transition: opacity 1s ease-in-out;
     opacity: 0;
+    filter: blur(1px);
   }
   
   .slider-image.active {
