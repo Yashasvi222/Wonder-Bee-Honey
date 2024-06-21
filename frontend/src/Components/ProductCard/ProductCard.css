@@ -1,4 +1,9 @@
-.card-container{
+.card {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .card-container {
     height: 430px;
     width: 290px;
     display: flex;
@@ -7,71 +12,140 @@
     border: 1px solid #8CB45C;
     align-items: center;
     justify-content: space-around;
-}
-
-.card-container:hover{
+    z-index: 1;
+  }
+  
+  .card-container:hover {
     transform: scale(1.02);
     transition: all 0.3s ease;
-}
-
-.card-container img{
+  }
+  
+  .card-container img {
     width: 260px;
     height: auto;
     margin-top: -12px;
-}
-.line{
+  }
+  
+  .line {
     width: 150px;
     height: 1.5px;
     border: none;
     background-color: #8CB45C;
-}
-.price{
-    font-size: 21px;
+  }
+  
+  .price {
+    font-size: 26px;
     color: #DFD832;
     font-weight: 500;
     margin-top: -20px;
-}
-.flavor{
+  }
+  
+  .flavor {
     font-family: 'Dancing Script';
     font-size: 32px;
     color: #8CB45C;
     margin-top: -45px;
     margin-bottom: -5px;
-}
-.weights{
+  }
+  
+  .weights {
     display: flex;
-}
-.card-container button{
+    align-items: center;
+    justify-content: center;
+    margin-top: -40px;
+  }
+  
+  .card-container select {
+    width: 130px;
+    height: 34px;
+    border: 1px solid #8CB45C;
+    background-color: #FFFCF5;
+    color: #8CB45C;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .card-container select:focus {
+    outline: none;
+  }
+  
+  .card-container button {
     background-color: #8CB45C;
     border: none;
     color: white;
-    width: 130px;
+    width: 120px;
     height: 34px;
     font-size: 15px;
-    margin-top: -5px;
+    margin-bottom: 15px;
     cursor: pointer;
-}
-.card-container button:hover {
+  }
+  
+  .card-container button:hover {
     background-color: #84aa55;
     transform: scale(1.08);
     transition: all 0.3s ease;
-}
-.card-container button:active {
+  }
+  
+  .card-container button:active {
     background-color: #9ec371;
     transform: scale(1.08);
     transition: all 0.3s ease;
-}
-
-.w-one, .w-two{
+  }
+  
+  .description-div {
     display: flex;
-    width: 65px;
-    height: 30px;
-    border: 1px solid #8CB45C;
-    margin: 10px;
     align-items: center;
     justify-content: center;
-    color: #8CB45C;
-    margin-top: -30px;
-    margin-bottom: -20px;
+    background-color: #8CB45C;
+    border: none;
+    color: white;
+    width: 120px;
+    height: 34px;
+    font-size: 15px;
+    margin-bottom: 15px;
     cursor: pointer;
-}
+  }
+  
+  .card-lower-section {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .description-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 70%;
+    height: 100%;
+    background-color: #FFFCF5; /* Solid background color */
+    pointer-events: none; /* Prevents flickering by ignoring pointer events */
+  }
+  
+  .description-container * {
+    pointer-events: auto; /* Re-enables pointer events for child elements */
+  }
+  
+  .description {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFCF5;
+    border: 1px solid #8CB45C;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .description-heading{
+    font-size: 26px;
+    font-family: 'Dancing Script';
+    color: #84aa55;
+  }
+  
+  .description-content{
+    text-align: justify;
+  }

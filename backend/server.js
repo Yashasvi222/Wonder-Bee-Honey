@@ -45,30 +45,39 @@ app.post("/upload",upload.single('product'),(req,res)=>{
 //Schema for creating products
 
 const Product = mongoose.model("Product",{
-    id:{
+    id: {
         type: Number,
-        reqired:true,
+        required: true,
+        unique: true
     },
-    name:{
+    name: {
         type: String,
-        required:true,
+        required: true
     },
-    image:{
-        type:String,
-        required:true,
+    image: {
+        type: String,
+        required: true
     },
-    price:{
-        type:Number,
-        required:true,
+    weights: [
+        {
+            weight: {
+                type: String,
+                required: true
+            },
+            price: {
+                type: Number,
+                required: true
+            }
+        }
+    ],
+    date: {
+        type: Date,
+        default: Date.now
     },
-    date:{
-        type:Date,
-        default:Date.now,
-    },
-    available:{
-        type:Boolean,
-        default:true,
-    },
+    available: {
+        type: Boolean,
+        default: true
+    }
 })
 
 //Creating API for adding products
@@ -148,8 +157,8 @@ app.post('/signup', async(req,res)=>{
         return res.status(400).json({success:false,errors:"existing user found with same email id!"})
     }
     let cart = {};
-    for(let i=0; i<300; i++){
-        cart[i]=0;
+    for (let i = 0; i < 300; i++) {
+        cart[i] = {}; // Each product ID now maps to an empty object
     }
     const user = new Users({
         name:req.body.username,
@@ -211,23 +220,75 @@ const fetchUser = async(req, res, next)=>{
 }
 
 //Creating endpoint for adding products in cart data
-app.post('/addtocart', fetchUser, async(req, res)=>{
-    console.log("Added", req.body.itemId);
-    let userData = await Users.findOne({_id:req.user.id});
-    userData.cartData[req.body.itemId] += 1;
-    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData})
-    res.send("Product Added")
-})
+app.post('/addtocart', fetchUser, async (req, res) => {
+    const { itemId, weight } = req.body;
+    console.log("Added", itemId, weight);
+    
+    try {
+        let userData = await Users.findOne({ _id: req.user.id });
+        console.log(userData)
+        if (!userData.cartData) {
+            userData.cartData = {};
+        }
+
+        if (!userData.cartData[itemId]) {
+            userData.cartData[itemId] = {};
+        }
+        
+        if (!userData.cartData[itemId][weight]) {
+            userData.cartData[itemId][weight] = 0;
+        }
+
+        userData.cartData[itemId][weight] += 1;
+
+        await Users.findOneAndUpdate(
+            { _id: req.user.id },
+            { cartData: userData.cartData }
+        );
+
+        res.send("Product Added");
+    } catch (error) {
+        console.error("Error adding product to cart:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
 
 //Creating endpoint for removing products in cart data
-app.post('/removefromcart', fetchUser, async(req, res)=>{
-    console.log("Removed", req.body.itemId);
-    let userData = await Users.findOne({_id:req.user.id});
-    if(userData.cartData[req.body.itemId]>0)
-    userData.cartData[req.body.itemId] -= 1;
-    await Users.findOneAndUpdate({_id:req.user.id},{cartData:userData.cartData})
-    res.send("Product Removed")
-})
+app.post('/removefromcart', fetchUser, async (req, res) => {
+    const { itemId, weight } = req.body;
+    console.log("Removed", itemId, weight);
+    
+    try {
+        let userData = await Users.findOne({ _id: req.user.id });
+
+        if (userData.cartData[itemId] && userData.cartData[itemId][weight]) {
+            userData.cartData[itemId][weight] -= 1;
+
+            // Remove the weight if the quantity drops to 0
+            if (userData.cartData[itemId][weight] <= 0) {
+                delete userData.cartData[itemId][weight];
+            }
+
+            // Remove the item if no weights are left
+            if (Object.keys(userData.cartData[itemId]).length === 0) {
+                delete userData.cartData[itemId];
+            }
+
+            await Users.findOneAndUpdate(
+                { _id: req.user.id },
+                { cartData: userData.cartData }
+            );
+
+            res.send("Product Removed");
+        } else {
+            res.status(400).send("Product not found in cart or weight not found");
+        }
+    } catch (error) {
+        console.error("Error removing product from cart:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
 
 app.post('/getcart', fetchUser, async(req, res)=>{
     console.log("Get Cart");
